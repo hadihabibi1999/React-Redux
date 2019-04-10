@@ -1,21 +1,15 @@
+import {createStore} from "redux";
 
-import {createStore} from 'redux';
-
-const Reducer = function(state,action){
-if(action.type==='INC')
-return state+action.payload
-return state;
+const reduce = function(state,action){
+ if (action.type==='dec')
+ return state+3;
+ return state;
 }
 
-const store = createStore(Reducer,0);
+const store = createStore(reduce,2);
 
-store.subscribe(()=>{
-console.log('store changed',store.getState())
-});
+store.subscribe(() => console.log(store.getState()));
 
-store.dispatch({type:'INC',payload:1})
-store.dispatch({type:'INC',payload:5})
-store.dispatch({type:'INC',payload:10})
-store.dispatch({type:'INC',payload:-39})
+store.dispatch({type:'dec'});
 
 export default store;

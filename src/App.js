@@ -20,7 +20,7 @@ class App extends Component {
           >
             Learn React
           </a>
-           {this.store}
+         
         </header>
       </div>
     );
