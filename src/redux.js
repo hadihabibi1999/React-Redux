@@ -19,7 +19,7 @@ const reducers = combineReducers({
 const store = createStore(reducers);
 
  function action (some) {
-     return {
+     return{
     type:"DEC",
     some
      }
