@@ -1,5 +1,4 @@
 
-
 import {combineReducers,createStore} from "redux";
 
 const reduce1 = function(state={},action){
@@ -13,16 +12,16 @@ const reduce2 = function(state={},action){
     return state;
 }
 const reducers = combineReducers({
-    decrease:reduce1,
-    increase:reduce2
+    increase: reduce1,
+    decrease: reduce2
 })
 const store = createStore(reducers);
 
-
 store.subscribe(() => console.log(store.getState()));
 
-store.dispatch({type:"DEC",valu:4});
-store.dispatch({type:"INC",valu:4});
-
+store.dispatch({type:"DEC",valu:7});
+store.dispatch({type:"INC",valu:7});
+store.dispatch({type:"INC",valu:3});
+store.dispatch({type:"DEC",valu:3});
 
 export default store;
