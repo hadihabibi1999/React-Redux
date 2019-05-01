@@ -1,30 +1,34 @@
+
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
 import store from './redux';
 
-class App extends Component {
+class Main extends Component {
+  state={
+    count:0
+  }
+
+  increment = () => {
+    this.props.dispatch({ type: "INCREMENT" });
+  };
+  
+  decrement = () => {
+    this.props.dispatch({ type: "DECREMENT" });
+  };
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-
-        </header>
+      <div style={{padding:420,backgroundColor:"lightblue"}}>
+       <button style={{height:30}} onPress={this.decrement}>decrement</button>
+          {' '} <span style={{color:"steelblue"}}>{this.state.count}</span> {' '}
+        <button style={{height:30}} onPress={this.increment}>increment</button>
       </div>
     );
   }
 }
-
+const App = () => (
+  <Provider store={store}>
+    <Main/>
+  </Provider>
+);
 export default App;
