@@ -10,10 +10,12 @@ class Main extends Component {
 
   increment = () => {
     this.props.dispatch({ type: "INCREMENT" });
+
   };
   
   decrement = () => {
     this.props.dispatch({ type: "DECREMENT" });
+
   };
 
   render() {
@@ -30,5 +32,5 @@ const App = () => (
   <Provider store={store}>
     <Main/>
   </Provider>
-);
+)
 export default App;
