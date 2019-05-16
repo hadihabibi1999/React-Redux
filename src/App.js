@@ -4,26 +4,21 @@ import { Provider } from 'react-redux';
 import store from './redux';
 
 class Main extends Component {
-  state={
-    count:0
+  constructor(){
+    super();
+    this.state={
+      text:"click here"
+    }
+  }
+  text = () => {
+    this.setState({text:'look at your console'})
   }
 
-  increment = () => {
-    this.props.dispatch({ type: "INCREMENT" });
-
-  };
   
-  decrement = () => {
-    this.props.dispatch({ type: "DECREMENT" });
-
-  };
-
   render() {
     return (
       <div style={{padding:420,backgroundColor:"lightblue"}}>
-       <button style={{height:30}} onPress={this.decrement}>decrement</button>
-          {' '} <span style={{color:"steelblue"}}>{this.state.count}</span> {' '}
-        <button style={{height:30}} onPress={this.increment}>increment</button>
+       <p onClick={this.text}>{this.state.text}</p>
       </div>
     );
   }
