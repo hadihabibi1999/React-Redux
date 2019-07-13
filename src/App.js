@@ -1,26 +1,33 @@
+
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import { connect } from "react-redux";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
-
-export default App;
+class Counter extends React.Component {
+    
+      increment = () => {
+        this.props.dispatch({type:'INCREMENT'})
+      }
+    
+      decrement = () => {
+        this.props.dispatch({type:'DECREMENT'})
+      }
+    
+      render() {
+        return (
+             <div className='badge badge-dark'style={{marginTop:400,marginLeft:755}}>
+                 <h2>counter</h2>
+                 <button onClick={this.decrement}>-</button>
+                     <span className="count"> {this.props.count} </span>
+                 <button onClick={this.increment}>+</button>
+             </div>
+        );
+      }
+    }
+  
+    const mapStateToProps = (state) => ({
+      count:state.count
+    })
+    
+    
+    export default connect(mapStateToProps)(Counter);
